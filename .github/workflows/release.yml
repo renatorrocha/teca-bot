@@ -2,24 +2,26 @@ name: Release
 on:
     push:
         branches: [main]
+permissions:
+    contents: read
 
 jobs:
     release:
         runs-on: ubuntu-latest
+        permissions:
+            contents: write
+            issues: write
+            pull-requests: write
+            id-token: write
 
         steps:
-            - uses: actions/checkout@v4
+            - name: Checkout
+              uses: actions/checkout@v4
               with:
                   fetch-depth: 0
-
-            - uses: oven-sh/setup-bun@v1
+            - name: Setup Node.js
+              uses: actions/setup-node@v4
               with:
-                  bun-version: latest
-
-            - name: Install project dependencies
-              run: bun install
-
-            - name: Run semantic-release
-              run: npx semantic-release@25
-              env:
-                  GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+                  node-version: "lts/*"
+            - name: Install dependencies
+              run: npm clean-install
