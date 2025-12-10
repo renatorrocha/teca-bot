@@ -1,6 +1,13 @@
 # 1.0.0 (2025-12-10)
 
 
+### Features
+
+* biome configuration and update package dependencies ([0156d90](https://github.com/renatorrocha/teca-bot/commit/0156d9037059781973d4072e89145b44c685e7b0))
+
+# 1.0.0 (2025-12-10)
+
+
 ### Bug Fixes
 
 * CI/CD testing ([8e75038](https://github.com/renatorrocha/teca-bot/commit/8e75038e188a55b71903217dcbd0899b73daed89))
